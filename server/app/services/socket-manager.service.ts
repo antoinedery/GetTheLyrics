@@ -1,6 +1,16 @@
 import * as http from "http";
 import * as io from "socket.io";
+import { DefaultEventsMap } from "socket.io/dist/typed-events";
 import { Service } from "typedi";
+const Genius = require("genius-lyrics");
+declare type Socket = io.Socket<
+  DefaultEventsMap,
+  DefaultEventsMap,
+  DefaultEventsMap
+>;
+const Client = new Genius.Client(
+  "mGTbWRxi8q0cJDoJecKIER1eOZd-uEJRV2APs3JlVZH-d3frC4JAc6-KgK-jxKyw"
+);
 
 @Service()
 export class SocketManagerService {
@@ -17,10 +27,19 @@ export class SocketManagerService {
   handleSockets(): void {
     this.sio.on("connection", (socket) => {
       console.log(socket.id);
-    });
 
-    //   socket.on("getDictionaryForClient", (title: string) => {
-    //     this.dictionaryManagerService.sendDictionaryToClient(title, socket);
-    //   });
+      socket.on("getLyrics", (songInformation: string) => {
+        this.getLyrics(songInformation, socket);
+      });
+    });
+  }
+
+  async getLyrics(songInformation: string, socket: Socket): Promise<void> {
+    const searches = await Client.songs.search(songInformation);
+    if (searches.length === 0) socket.emit("notFound");
+    else {
+      const lyrics: string = await searches[0].lyrics();
+      socket.emit("foundLyrics", lyrics);
+    }
   }
 }
