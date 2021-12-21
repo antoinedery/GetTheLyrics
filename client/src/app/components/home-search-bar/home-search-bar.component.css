@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+
+#search-bar-container{
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+#search-bar{
+    width:100%;
+    margin-bottom: 2%;
+}
+
+#search-button
+{
+    width:100%;
+}
