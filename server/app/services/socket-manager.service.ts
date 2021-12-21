@@ -2,6 +2,8 @@ import * as http from "http";
 import * as io from "socket.io";
 import { DefaultEventsMap } from "socket.io/dist/typed-events";
 import { Service } from "typedi";
+import { SongInformation } from "app/classes/interfaces/song-information";
+
 const Genius = require("genius-lyrics");
 declare type Socket = io.Socket<
   DefaultEventsMap,
@@ -38,8 +40,12 @@ export class SocketManagerService {
     const searches = await Client.songs.search(songInformation);
     if (searches.length === 0) socket.emit("notFound");
     else {
-      const lyrics: string = await searches[0].lyrics();
-      socket.emit("foundLyrics", lyrics);
+      const information: SongInformation = {
+        songTitle: searches[0].title,
+        artist: searches[0].artist.name,
+        lyrics: await searches[0].lyrics(),
+      };
+      socket.emit("foundLyrics", information);
     }
   }
 }

@@ -1,0 +1,14 @@
+div {
+    white-space: pre-wrap;  /*preserve line breaks in lyrics*/
+}
+
+#lyrics-display-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#song-information-container{
+    display: flex;
+    justify-content: center;
+}
