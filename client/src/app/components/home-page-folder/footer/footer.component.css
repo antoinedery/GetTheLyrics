@@ -1,0 +1,27 @@
+#footer-copyright{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: white;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#footer-social{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    width:100%;
+}
+
+#github, #linkedin{
+    font-size:42px;
+    color:white;
+}
+
+#github:hover, #linkedin:hover{
+    font-size:42px;
+    cursor:pointer;
+    color:#FFC100;
+    text-shadow: 0 0 40px #FFC100;
+}
