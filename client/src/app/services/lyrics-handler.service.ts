@@ -7,6 +7,7 @@ import { ClientSocketService } from './client-socket.service';
 })
 export class LyricsHandlerService {
   isInitialize: boolean = false;
+  isReceived: boolean = false;
   researchTitle: string = '';
   constructor(private clientSocketService: ClientSocketService) {}
 

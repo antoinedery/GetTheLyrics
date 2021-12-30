@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LyricsHandlerService } from '@app/services/lyrics-handler.service';
 import { SongInformation } from 'src/app/classes/interfaces/song-information';
 import { ClientSocketService } from 'src/app/services/client-socket.service';
 
@@ -10,19 +11,21 @@ import { ClientSocketService } from 'src/app/services/client-socket.service';
 export class LyricsDisplayComponent implements OnInit {
   songInformation: SongInformation = { songTitle: '', artist: '', lyrics: '' };
   isFound: boolean = true;
-  isReceived: boolean = false;
 
-  constructor(private clientSocketService: ClientSocketService) {}
+  constructor(
+    private clientSocketService: ClientSocketService,
+    public lyricsHandlerService: LyricsHandlerService
+  ) {}
 
   ngOnInit(): void {
     this.clientSocketService.lyricsObservable.subscribe((value) => {
-      this.isReceived = true;
+      this.lyricsHandlerService.isReceived = true;
       this.isFound = true;
       this.songInformation = value;
     });
 
     this.clientSocketService.notFoundLyricsObservable.subscribe(() => {
-      this.isReceived = true;
+      this.lyricsHandlerService.isReceived = true;
       this.isFound = false;
     });
   }

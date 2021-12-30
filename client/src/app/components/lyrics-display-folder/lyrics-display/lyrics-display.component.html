@@ -1,4 +1,4 @@
-<div *ngIf="isReceived">
+<div *ngIf="lyricsHandlerService.isReceived">
   <div id="lyrics-display-container">
     <div *ngIf="isFound && songInformation.lyrics.length > 0">
       <div id="song-information-container">
@@ -17,6 +17,6 @@
   </div>
 </div>
 
-<div *ngIf="!isReceived" id="spinner-container">
-  <mat-spinner id="mat-spinner-color"></mat-spinner>
+<div *ngIf="!lyricsHandlerService.isReceived" id="spinner-container">
+  <mat-spinner id="mat-spinner-color" [diameter]="100"></mat-spinner>
 </div>

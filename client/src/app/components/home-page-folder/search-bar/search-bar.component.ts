@@ -23,6 +23,7 @@ export class HomeSearchBarComponent implements AfterViewInit {
     if (this.inputBox.nativeElement.value.length === 0) return;
     this.lyricsHandlerService.researchTitle = this.songTitle;
     this.lyricsHandlerService.getLyrics(this.songTitle);
+    this.lyricsHandlerService.isReceived = false;
     this.router.navigate(['/search', this.songTitle]);
   }
 }
