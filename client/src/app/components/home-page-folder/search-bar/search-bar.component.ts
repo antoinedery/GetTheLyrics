@@ -21,7 +21,8 @@ export class HomeSearchBarComponent implements AfterViewInit {
 
   generateLyrics(): void {
     if (this.inputBox.nativeElement.value.length === 0) return;
-    this.router.navigate(['/search', this.songTitle]);
+    this.lyricsHandlerService.researchTitle = this.songTitle;
     this.lyricsHandlerService.getLyrics(this.songTitle);
+    this.router.navigate(['/search', this.songTitle]);
   }
 }

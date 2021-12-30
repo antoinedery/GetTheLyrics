@@ -6,9 +6,12 @@ import { ClientSocketService } from './client-socket.service';
   providedIn: 'root',
 })
 export class LyricsHandlerService {
+  isInitialize: boolean = false;
+  researchTitle: string = '';
   constructor(private clientSocketService: ClientSocketService) {}
 
   getLyrics(songInformation: string) {
+    this.isInitialize = true;
     this.clientSocketService.getLyricsFromServer(songInformation);
   }
 }

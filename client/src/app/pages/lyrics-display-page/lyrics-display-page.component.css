@@ -1,0 +1,44 @@
+#page-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#nav-container{
+    height:100px;
+} 
+
+#lyrics-container{
+    height:75%;
+}
+
+#footer-container {
+    height:100px;
+    background-color:rgb(0, 30, 55);
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+/*Scrollbar*/
+::-webkit-scrollbar {
+    width: 0.40vw;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+

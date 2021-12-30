@@ -10,16 +10,19 @@ import { ClientSocketService } from 'src/app/services/client-socket.service';
 export class LyricsDisplayComponent implements OnInit {
   songInformation: SongInformation = { songTitle: '', artist: '', lyrics: '' };
   isFound: boolean = true;
+  isReceived: boolean = false;
 
   constructor(private clientSocketService: ClientSocketService) {}
 
   ngOnInit(): void {
     this.clientSocketService.lyricsObservable.subscribe((value) => {
+      this.isReceived = true;
       this.isFound = true;
       this.songInformation = value;
     });
 
-    this.clientSocketService.notFoundLyricsObservable.subscribe((value) => {
+    this.clientSocketService.notFoundLyricsObservable.subscribe(() => {
+      this.isReceived = true;
       this.isFound = false;
     });
   }

@@ -6,16 +6,31 @@ div {
     width: 100%;
     display: flex;
     justify-content: center;
+    font-family: Verdana, sans-serif;
 }
 
 #song-information-container{
     display: flex;
     justify-content: center;
-    margin:5% 0;
+    margin:3% 0;
     font-weight: bold;
 }
 
 #lyrics-container{
     width:100%;
     line-height: 140%;
+    margin-bottom:3%;
+}
+
+#spinner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    padding:15% 0;
+}
+
+#mat-spinner-color::ng-deep{
+    /* stroke: rgb(0, 30, 55) !important; */
+    stroke:#FFC100 !important;
 }
