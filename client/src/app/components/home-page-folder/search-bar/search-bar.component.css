@@ -32,6 +32,10 @@
     outline:none;
 }
 
+/* #search-bar:hover, #search-bar:focus{
+    box-shadow: 0 0 5px #FFC100;
+} */
+
 #search-button-container{
     display:flex;
     justify-content: center;
@@ -47,16 +51,17 @@
     height:35px;
     cursor: pointer;
     background-color: white;
-    /* font-family: Verdana, sans-serif; */
     font-family:'LemonMilk';
     border-radius: 12.5px;
     font-size:16px;
     height:40px;
     border:none;
+    outline:none;
 }
 
 #search-button:hover
 {
     background-color: #FFC100;
-    transition: ease 0.15s;
+    transition: ease 0.25s;
+    box-shadow: 0 0 5px #FFC100;
 }

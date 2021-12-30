@@ -1,4 +1,5 @@
 import { ApplicationRef, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 // import { environment } from 'src/environments/environment.prod'; // Pour AWS

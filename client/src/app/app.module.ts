@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AppComponent } from './pages/app/app.component';
 import { HomeSearchBarComponent } from './components/home-page-folder/search-bar/search-bar.component';
-import { LyricsDisplayComponent } from './components/lyrics-display/lyrics-display.component';
+import { LyricsDisplayComponent } from './components/lyrics-display-folder/lyrics-display.component';
 import { FooterComponent } from './components/home-page-folder/footer/footer.component';
 import { AppRoutingModule } from './modules/app-routing.module';
+import { LyricsDisplayPageComponent } from './pages/lyrics-display-page/lyrics-display-page.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AppRoutingModule } from './modules/app-routing.module';
     HomeSearchBarComponent,
     LyricsDisplayComponent,
     FooterComponent,
+    LyricsDisplayPageComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
