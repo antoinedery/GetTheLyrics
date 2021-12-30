@@ -1,6 +1,7 @@
 #footer-copyright{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
+    /* font-family: Verdana, sans-serif; */
+    font-family:'LemonMilk';
+    font-size: 14px;
     color: white;
     display:flex;
     flex-wrap: wrap;
