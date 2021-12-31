@@ -30,15 +30,35 @@ export class SocketManagerService {
     this.sio.on("connection", (socket) => {
       console.log(socket.id);
 
+      socket.on("getSongsSuggestions", (songInformation: string) => {
+        this.getSongsSuggestions(songInformation, socket);
+      });
+
       socket.on("getLyrics", (songInformation: string) => {
         this.getLyrics(songInformation, socket);
       });
     });
   }
 
+  async getSongsSuggestions(songInformation: string, socket: Socket): Promise<void> {
+    const searches = await Client.songs.search(songInformation);
+    if (searches.length === 0) socket.emit("songSuggestionsNotFound");
+    else {
+      const songsInformation: SongInformation[] = [];
+      for (const suggestedSong of searches) {
+        songsInformation.push({
+          songTitle: suggestedSong.title,
+          artist: suggestedSong.artist.name,
+          lyrics: "",
+        });
+      }
+      socket.emit("foundSongsSuggestions", songsInformation);
+    }
+  }
+
   async getLyrics(songInformation: string, socket: Socket): Promise<void> {
     const searches = await Client.songs.search(songInformation);
-    if (searches.length === 0) socket.emit("notFound");
+    if (searches.length === 0) socket.emit("lyricsNotFound");
     else {
       const information: SongInformation = {
         songTitle: searches[0].title,

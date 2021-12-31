@@ -19,7 +19,7 @@
 }
 
 #empty{
-    width:0.75%;
+    width:2%;
     height:100%;
     cursor:pointer;
 }
@@ -29,11 +29,11 @@
 }
 
 #title{
-    text-shadow: 0 0 35px lightgrey;
+    /* text-shadow: 0 0 35px lightgrey; */
     cursor:pointer;
 }
 
 #search-bar-container
 {
-    width:50%;
+    width:100%;
 }
