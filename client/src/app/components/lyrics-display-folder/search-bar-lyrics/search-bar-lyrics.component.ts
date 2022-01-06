@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LyricsHandlerService } from '@app/services/lyrics-handler.service';
 
@@ -7,7 +7,7 @@ import { LyricsHandlerService } from '@app/services/lyrics-handler.service';
   templateUrl: './search-bar-lyrics.component.html',
   styleUrls: ['./search-bar-lyrics.component.css'],
 })
-export class SearchBarLyricsComponent implements AfterViewInit {
+export class SearchBarLyricsComponent {
   @ViewChild('inputBox') inputBox!: ElementRef;
   songTitle: string = '';
   constructor(
@@ -15,9 +15,9 @@ export class SearchBarLyricsComponent implements AfterViewInit {
     private lyricsHandlerService: LyricsHandlerService
   ) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.songTitle = this.lyricsHandlerService.researchTitle;
-    this.inputBox.nativeElement.value = this.songTitle;
+    if (this.inputBox) this.inputBox.nativeElement.value = this.songTitle;
   }
 
   generateLyrics(): void {
