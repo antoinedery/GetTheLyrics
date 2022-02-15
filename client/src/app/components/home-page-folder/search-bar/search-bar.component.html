@@ -17,21 +17,27 @@
     </div>
     <div id="suggestion-container" *ngIf="researchString.length > 0">
       <div>
-        <div *ngIf="suggestedSongs.length === 0 && isSuggestionFound" id="suggestion songNotFound">
+        <!-- <div *ngIf="suggestedSongs.length === 0 && isSuggestionFound" id="suggestion-not-found">
           No songs found
-        </div>
+        </div> -->
       </div>
       <div
-        *ngFor="let suggestion of suggestedSongs"
+        *ngFor="let suggestion of suggestedSongs.slice(0,7)"
         id="suggestion">
         <div (click)="selectSong(suggestion)">
           {{ suggestion.artist }} - {{ suggestion.songTitle }}
         </div>
+        
           
+      </div>
+      <div id="search-button-container">
+        <button tabindex="-1" (click)="generateLyrics()" id="search-button" *ngIf="suggestedSongs.length > 0 && isSuggestionFound">
+          Search
+        </button>
       </div>
     </div>
   </div>
-  <div id="search-button-container">
+  <div id="search-button-container"  *ngIf="suggestedSongs.length === 0">
     <button tabindex="-1" (click)="generateLyrics()" id="search-button">
       Search
     </button>

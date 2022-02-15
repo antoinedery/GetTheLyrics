@@ -2,22 +2,38 @@ div {
     white-space: pre-wrap;  /*preserve line breaks in lyrics*/
 }
 
-#lyrics-display-container{
+#lyrics-display-container, #not-found-lyrics-container{
     width: 100%;
     display: flex;
     justify-content: center;
     font-family: Verdana, sans-serif;
+    margin:0;
+}
+
+#not-found-lyrics-container{
+    margin-top: 50%;
+    text-align: center;
+    line-height: 140%;
+}
+
+#main-container{
+    width:50%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #song-information-container{
+    width:100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin:3% 0;
     font-weight: bold;
 }
 
 #lyrics-container{
-    width:100%;
+    width:50%;
     line-height: 140%;
     margin-bottom:3%;
 }
@@ -31,6 +47,5 @@ div {
 }
 
 #mat-spinner-color::ng-deep{
-    /* stroke: rgb(0, 30, 55) !important; */
     stroke:#FFC100 !important;
 }

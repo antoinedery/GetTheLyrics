@@ -66,7 +66,6 @@ export class HomeSearchBarComponent implements OnInit, AfterViewInit {
 
   selectSong(clickedSong:SongInformation):void{
     this.researchString = clickedSong.artist + ' ' + clickedSong.songTitle;
-    // this.lyricsHandlerService.researchTitle = this.researchString;
     this.generateLyrics();
   }
 }

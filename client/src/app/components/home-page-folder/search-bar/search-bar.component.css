@@ -31,20 +31,22 @@
 #suggestion-container{
     width:100%;
     background-color: white;
-    border-bottom-left-radius: 22.5px; 
-    border-bottom-right-radius: 22.5px;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px;
 }
 
-#suggestion{
+#suggestion, #suggestion-not-found{
     padding:10px;
     font-family:Verdana, sans-serif;
 }
 
-#suggestion:hover{
+#suggestion-not-found{
+    text-align: center;
+}
+
+#suggestion:hover {
     background-color: lightgray;
     cursor:pointer;
-    border-bottom-left-radius: 22.5px; 
-    border-bottom-right-radius: 22.5px;
 }
 
 .search-bar-empty,.search-bar-suggestion{
@@ -60,13 +62,13 @@
 }
 
 .search-bar-empty{
-    border-radius: 22.5px;
-    border-bottom-left-radius: 22.5px; 
-    border-bottom-right-radius: 22.5px; 
+    border-radius: 15px;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px; 
 }
 
 .search-bar-suggestion{
-    border-radius: 22.5px;
+    border-radius: 15px;
     border-bottom-left-radius: 0; 
     border-bottom-right-radius: 0; 
 }

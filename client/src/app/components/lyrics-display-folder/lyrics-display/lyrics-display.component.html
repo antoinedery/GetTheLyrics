@@ -1,17 +1,14 @@
 <div *ngIf="lyricsHandlerService.isReceived">
   <div id="lyrics-display-container">
-    <div *ngIf="isFound && songInformation.lyrics.length > 0">
-      <div id="song-information-container">
-        {{ songInformation.songTitle }} - {{ songInformation.artist }}
-      </div>
-      <div id="lyrics-container">
-        {{ songInformation.lyrics }}
-      </div>
+    <div *ngIf="isFound && songInformation.lyrics.length > 0" id="main-container">
+      <div id="song-information-container">{{ songInformation.songTitle }} - {{ songInformation.artist }}</div>
+      <div id="lyrics-container">{{ songInformation.lyrics }}</div>
     </div>
 
     <div *ngIf="!isFound">
       <div id="not-found-lyrics-container">
-        <p>Aucune pièce trouvée</p>
+        <p>Your search yielded no result. Make sure that all words are spelled correctly. <br>
+        It is also possible that the song is not available in the database.</p>
       </div>
     </div>
   </div>
