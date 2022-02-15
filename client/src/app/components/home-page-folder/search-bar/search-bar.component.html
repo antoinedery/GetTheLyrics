@@ -6,21 +6,28 @@
         class="search-bar-empty"
         type="text"
         (ngModelChange)="getSuggestedSongs()"
-        [(ngModel)]="songTitle"
+        [(ngModel)]="researchString"
         autocomplete="off"
         (keydown.enter)="generateLyrics()"
         [ngClass]="{
-          'search-bar-empty': songTitle.length === 0 || !isSuggestionFound,
-          'search-bar-suggestion': songTitle.length > 0 && isSuggestionFound
+          'search-bar-empty': researchString.length === 0 || !isSuggestionFound,
+          'search-bar-suggestion': researchString.length > 0 && isSuggestionFound
         }"
       />
     </div>
-    <div id="suggestion-container" *ngIf="songTitle.length > 0">
+    <div id="suggestion-container" *ngIf="researchString.length > 0">
+      <div>
+        <div *ngIf="suggestedSongs.length === 0 && isSuggestionFound" id="suggestion songNotFound">
+          No songs found
+        </div>
+      </div>
       <div
         *ngFor="let suggestion of suggestedSongs"
-        id="suggestion"
-      >
-        {{ suggestion.songTitle }} - {{ suggestion.artist }}
+        id="suggestion">
+        <div (click)="selectSong(suggestion)">
+          {{ suggestion.artist }} - {{ suggestion.songTitle }}
+        </div>
+          
       </div>
     </div>
   </div>

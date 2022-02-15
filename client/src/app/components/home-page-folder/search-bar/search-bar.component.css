@@ -42,7 +42,9 @@
 
 #suggestion:hover{
     background-color: lightgray;
-    cursor:default;
+    cursor:pointer;
+    border-bottom-left-radius: 22.5px; 
+    border-bottom-right-radius: 22.5px;
 }
 
 .search-bar-empty,.search-bar-suggestion{
